@@ -17,7 +17,7 @@ type secret struct {
 	Username  string `yaml:"username" mapstructure:"username"`
 	Password  string `yaml:"password" mapstructure:"password"`
 	AccessKey string `yaml:"access-key" mapstructure:"access-key"`
-	SecretKey string `yaml:"secret-key" mapstructure:"access-key"`
+	SecretKey string `yaml:"secret-key" mapstructure:"secret-key"`
 	PoolId    string `yaml:"pool-id" mapstructure:"pool-id"`
 }
 
