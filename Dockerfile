@@ -4,7 +4,7 @@ COPY . /app
 WORKDIR /app
 
 ENV GO111MODULE=on
-RUN go env -w GOPROXY=https://ecloud.10086.cn/api/query/developer/nexus/repository/go-sdk/ && \
+RUN go env -w GOPROXY=https://ecloud.10086.cn/api/query/developer/nexus/repository/go-sdk/,https://goproxy.cn,direct && \
     go env -w GONOSUMDB=gitlab.ecloud.com && \
     go get -u gitlab.ecloud.com/ecloud/ecloudsdkcomputer
 
@@ -13,7 +13,7 @@ RUN go env -w GOPROXY=https://goproxy.cn,direct && \
 
 FROM alpine:latest
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
 
 ENV TZ=Asia/Shanghai
 RUN apk update \
